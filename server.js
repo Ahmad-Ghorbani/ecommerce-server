@@ -29,18 +29,11 @@ app.use("/api", require("./routes/paymentRouter"));
 
 
 // connect to MongoDB
-const URI = process.env.MONGODB_URL || 'mongodb+srv://Ahmad-Ghorbani:z68UxtN8UXnVEbVM@cluster0.lasq9.mongodb.net/ecommerce?retryWrites=true&w=majority';
+const URI = process.env.MONGODB_URL;
 mongoose.connect(URI, (err) => {
   if (err) throw err;
   console.log("Connected to MongoDB");
 });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
