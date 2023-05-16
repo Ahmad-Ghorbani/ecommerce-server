@@ -27,8 +27,9 @@ app.use("/api", require("./routes/upload"));
 app.use("/api", require("./routes/productRouter"));
 app.use("/api", require("./routes/paymentRouter"));
 
+
 // connect to MongoDB
-const URI = process.env.MONGODB_URL;
+const URI = process.env.MONGODB_URL || 'mongodb+srv://Ahmad-Ghorbani:z68UxtN8UXnVEbVM@cluster0.lasq9.mongodb.net/ecommerce?retryWrites=true&w=majority';
 mongoose.connect(URI, (err) => {
   if (err) throw err;
   console.log("Connected to MongoDB");
