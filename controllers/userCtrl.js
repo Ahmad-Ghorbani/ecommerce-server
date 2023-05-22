@@ -90,6 +90,8 @@ const userCtrl = {
     try {
       const rf_token = req.cookies.refreshToken;
 
+      console.log(rf_token, 'fffff');
+
       if (!rf_token)
         return res.status(400).json({ msg: "Please login or register" });
 
