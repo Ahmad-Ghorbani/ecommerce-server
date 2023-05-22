@@ -59,6 +59,7 @@ const userCtrl = {
       res.cookie("refreshToken", refreshToken, {
         httpOnly:true,
         path: "/user/refresh_token",
+        
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
 
@@ -91,7 +92,7 @@ const userCtrl = {
     try {
       const rf_token = req.cookies.refreshToken;
 
-      console.log(rf_token, 'fffff');
+      console.log(req, 'fffff');
 
       if (!rf_token)
         return res.status(400).json({ msg: "Please login or register" });
