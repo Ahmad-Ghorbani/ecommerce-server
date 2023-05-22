@@ -4,6 +4,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 //cors manages the urls which can access our server
 const cors = require("cors");
+const corsOptions = {
+  origin: '*',
+  credentials: true };
 //Simple express middleware for uploading files.
 const fileUpload = require("express-fileupload");
 //manages cookies
@@ -13,7 +16,7 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(
   fileUpload({
     useTempFiles: true,
