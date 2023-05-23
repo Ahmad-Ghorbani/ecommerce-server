@@ -15,7 +15,9 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://ninja-shopper.netlify.app/'
+}));
 app.use(
   fileUpload({
     useTempFiles: true,
