@@ -21,6 +21,13 @@ app.use(
     useTempFiles: true,
   })
 );
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,UPDATE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  next();
+});
 
 //Routes (url begins with /user and the rest is dependant on userRoutes)
 app.use("/user", require("./routes/userRouter"));
