@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 //cors manages the urls which can access our server
 const cors = require("cors");
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://ninja-shopper.netlify.app",
   credentials: true,
 };
 //Simple express middleware for uploading files.
