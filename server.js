@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 //cors manages the urls which can access our server
 const cors = require("cors");
 const corsOptions = {
-  origin: '*',
-  credentials: true };
+  origin: "http://localhost:3000",
+  credentials: true,
+};
 //Simple express middleware for uploading files.
 const fileUpload = require("express-fileupload");
 //manages cookies
@@ -21,14 +22,7 @@ app.use(
     useTempFiles: true,
   })
 );
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,UPDATE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  // req.headers.origin('https://646d279ef8b23e06a23436a3--ninja-shopper.netlify.app/')
-  next();
-});
+
 
 //Routes (url begins with /user and the rest is dependant on userRoutes)
 app.use("/user", require("./routes/userRouter"));
